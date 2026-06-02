@@ -1,0 +1,147 @@
+body {
+    background-color: rgb(207, 182, 182);
+    font: bold 20px Arial, sans-serif;
+}
+
+.myheader {
+    color: orange;
+    text-shadow:
+        -1px -1px 0 brown,
+         1px -1px 0 brown,
+        -1px  1px 0 brown,
+         1px  1px 0 brown;
+}
+
+.myimages {
+
+    border: 5px solid orange;
+    border-radius: 15px;
+}
+
+.box-section {
+    background-color: white;
+    padding: 25px;
+    margin: 35px auto;
+    max-width: 700px;
+    border: 3px solid brown;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px gray;
+}
+
+.box-section h2 {
+    color: blue;
+}
+
+.box-section .special-text  {
+    color: rgb(230, 8, 178);
+}
+
+h2 {
+    font-family: fantasy;
+    font-size: 30px;
+    font-weight: bold;
+
+    color: green;
+    background-color: lightgray;
+    background: linear-gradient(to right, tan, brown);
+    padding: 10px;
+    margin: 50px auto;
+    max-width: 500px;
+    border: 10px solid purple;
+    border-radius: 50px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 2px 2px 5px gray;
+    box-shadow: 3px 3px 10px gray;
+    
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px gray;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+.sidebar {
+    background-color: #202225;
+    width: 90px;
+    min-height: 100vh;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar-button {
+    background-color: #5865F2;
+
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-left: 12px;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar:hover .sidebar-button {
+    width: 170px;
+}
+
+.sidebar-button:hover {
+    background-color: #4752C4;
+    border-radius: 18px;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px gray;
+}
+
+.sidebar-image {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+
+    flex-shrink: 0;
+    
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.sidebar-text {
+    color: white;
+    margin-left: 12px;
+    font-size: 16px;
+
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .sidebar-text {
+    opacity: 1;
+}

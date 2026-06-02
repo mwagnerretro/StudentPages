@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React Basics</title>
+    <meta charset="UTF-8">
+
+    <style>
+
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px auto;
+            transition: 0.3s;
+        }
+
+        .big {
+            transform: scale(1.5);
+            background-color: red;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1>React Demo Page</h1>
+
+<p>This is my React Demo Page.</p>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+function App() {
+
+    // 1. Counter
+    const [count, setCount] = React.useState(0);
+
+    // 2. Show / Hide
+    const [show, setShow] = React.useState(true);
+
+    // 3. Animation Toggle
+    const [big, setBig] = React.useState(false);
+
+    // 4. Live Text Input
+    const [name, setName] = React.useState("");
+
+    // 5. Food Picker
+    const [food, setFood] = React.useState(
+        "https://upload.wikimedia.org/wikipedia/commons/6/6b/French_Toast_%281%29.jpg"
+    );
+
+    return (
+
+        <div>
+
+            {/* 1. Counter */}
+
+            <div className="section">
+
+                <h2>1. Counter</h2>
+
+                <p>You clicked {count} times</p>
+
+                <button onClick={() => setCount(count + 1)}>
+                    Click Me
+                </button>
+
+            </div>
+
+            <hr />
+
+
+            {/* 2. Show / Hide */}
+
+            <div className="section">
+
+                <h2>2. Show / Hide</h2>
+
+                <button onClick={() => setShow(!show)}>
+                    Toggle Text
+                </button>
+
+                {show && <p>Hello! I can disappear.</p>}
+
+            </div>
+
+            <hr />
+
+
+            {/* 3. Animation */}
+
+            <div className="section">
+
+                <h2>3. Animation</h2>
+
+                <button onClick={() => setBig(!big)}>
+                    Animate Box
+                </button>
+
+                <div className={big ? "box big" : "box"}></div>
+
+            </div>
+
+            <hr />
+
+
+            {/* 4. Live Text Input */}
+
+            <div className="section">
+
+                <h2>4. Live Text Input</h2>
+
+                <input
+                    type="text"
+                    placeholder="Type your name"
+                    onChange={(event) =>
+                        setName(event.target.value)
+                    }
+                />
+
+                <p>Hello, {name}!</p>
+
+            </div>
+
+            <hr />
+
+
+            {/* 5. Breakfast Food Picker */}
+
+            <div className="section">
+
+                <h2>5. Breakfast Food Picker</h2>
+
+                <button
+                    onClick={() =>
+                        setFood(
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/French_toast%2C_maple_syrup.jpg/1920px-French_toast%2C_maple_syrup.jpg"
+                        )
+                    }
+                >
+                    French Toast
+                </button>
+
+                <button
+                    onClick={() =>
+                        setFood(
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg/1920px-Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg"
+                        )
+                    }
+                >
+                    Pancakes
+                </button>
+
+                <button
+                    onClick={() =>
+                        setFood(
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Waffles_with_Strawberries.jpg/1920px-Waffles_with_Strawberries.jpg"
+                        )
+                    }
+                >
+                    Waffles
+                </button>
+
+                <br /><br />
+
+                <img
+                    src={food}
+                    width="300"
+                />
+
+            </div>
+
+        </div>
+
+    );
+}
+
+
+// Render React
+const root = ReactDOM.createRoot(
+    document.getElementById("root")
+);
+
+root.render(<App />);
+
+</script>
+
+</body>
+</html>
