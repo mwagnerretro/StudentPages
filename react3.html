@@ -67,6 +67,10 @@ function ReactApp() {
         setCount(0);
     }
 
+    function minusCount() {
+        setCount(count - 1)
+    }
+
 
     let clickMessage = "";
     let messageColor = "black";
@@ -91,8 +95,8 @@ function ReactApp() {
                 Click Me
             </button>
 
-            <button onClick={() => setCount(count - 1)}>
-               Minus 1
+            <button onClick={minusCount}>
+                Minus 1
             </button>
 
             <button onClick={resetCount}>
