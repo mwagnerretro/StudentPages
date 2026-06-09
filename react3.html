@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React Basics</title>
+    <meta charset="UTF-8">
 
+    <style>
+        
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+        }
+
+        button {
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 2px solid black;
+            background-color: rgb(162, 162, 197);
+            color: rgb(255, 255, 255);
+            box-shadow: 2px 2px 5px gray;
+            transition: 0.3s;
+            padding: 10px 15px;
+
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        
+
+
+    </style>
+</head>
+
+<body>
+
+<h1>React Demo Page</h1>
+
+<p>This is my React Demo Page.</p>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+function ReactApp() {
+
+    const [count, setCount] = React.useState(0);
+
+
+    function addCount() {
+        setCount(count + 1);
+    }
+
+    function resetCount() {
+        setCount(0);
+    }
+
+
+    let clickMessage = "";
+    let messageColor = "black";
+
+    if (count >= 10) {
+        clickMessage = "You've hit 10 clicks!";
+    }
+
+    if (count >= 15) {
+        messageColor = "red";
+        clickMessage = "You've hit 15 clicks!";
+    }
+
+    return (
+        <div>
+
+            <h2>1. Counter</h2>
+
+            <p>You clicked {count} times</p>
+
+            <button onClick={addCount}>
+                Click Me
+            </button>
+
+            <button onClick={() => setCount(count - 1)}>
+               Minus 1
+            </button>
+
+            <button onClick={resetCount}>
+                Reset
+            </button>
+
+            <h3 style={{ color: messageColor }}>
+                {clickMessage}
+            </h3>
+
+
+
+            <hr />
+
+        </div>
+    );
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<ReactApp />);
+
+</script>
+
+</body>
+</html>
